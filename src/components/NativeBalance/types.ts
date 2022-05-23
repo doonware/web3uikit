@@ -7,4 +7,5 @@ export interface NativeBalanceProps {
     params?: UseNativeBalancesParams | undefined;
     options?: UseMoralisWeb3ApiCallOptions | undefined;
     style?: React.CSSProperties | undefined;
+    precision: number;
 }

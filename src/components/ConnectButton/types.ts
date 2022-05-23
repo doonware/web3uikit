@@ -13,4 +13,9 @@ export interface ConnectButtonProps {
      * an optional response message that will be displayed to the user once their sign-in request is successful
      */
     signingMessage?: string;
+
+    /**
+     * decimal precision used during formatting of NativeBalance
+     */
+    balancePrecision: number;
 }

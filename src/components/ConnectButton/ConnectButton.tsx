@@ -23,6 +23,7 @@ const ConnectButton: React.FC<ConnectButtonProps> = ({
     chainId,
     moralisAuth = true,
     signingMessage = 'Moralis Authentication',
+    balancePrecision = 8,
     ...props
 }) => {
     const {
@@ -125,7 +126,10 @@ const ConnectButton: React.FC<ConnectButtonProps> = ({
         <WrapperStyled {...props}>
             <AccountInfoStyled>
                 <BalanceBlockStyled>
-                    <NativeBalance style={{ margin: '0 8px 0 12px' }} />
+                    <NativeBalance
+                        precision={balancePrecision}
+                        style={{ margin: '0 8px 0 12px' }}
+                    />
                 </BalanceBlockStyled>
                 <AddressStyled onClick={() => disconnectWallet()}>
                     <TextStyled style={{ marginRight: '8px' }}>

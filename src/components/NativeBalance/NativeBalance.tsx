@@ -5,7 +5,11 @@ import { NativeBalanceProps } from './types';
 
 const { BalanceStyled } = NativeBalanceStyles;
 
-const NativeBalance: React.FC<NativeBalanceProps> = ({ style, ...props }) => {
+const NativeBalance: React.FC<NativeBalanceProps> = ({
+    style,
+    precision,
+    ...props
+}) => {
     const { account, chainId, web3, Moralis } = useMoralis();
     const [balance, setBalance] = useState<{
         formatted?: string;
@@ -20,7 +24,7 @@ const NativeBalance: React.FC<NativeBalanceProps> = ({ style, ...props }) => {
                     formatted: String(
                         Number(
                             Moralis.Units.FromWei(result.toString()),
-                        ).toFixed(8),
+                        ).toFixed(precision),
                     ),
                     balance: result,
                 });
@@ -30,7 +34,11 @@ const NativeBalance: React.FC<NativeBalanceProps> = ({ style, ...props }) => {
 
     if (!balance?.formatted || !account) return null;
 
-    return <BalanceStyled style={style} {...props}>{balance.formatted}</BalanceStyled>;
+    return (
+        <BalanceStyled style={style} {...props}>
+            {balance.formatted}
+        </BalanceStyled>
+    );
 };
 
 export default NativeBalance;
