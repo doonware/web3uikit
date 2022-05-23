@@ -17,5 +17,5 @@ export interface ConnectButtonProps {
     /**
      * decimal precision used during formatting of NativeBalance
      */
-    balancePrecision: number;
+    balancePrecision?: number;
 }

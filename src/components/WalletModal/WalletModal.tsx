@@ -25,6 +25,7 @@ const WalletModal: FC<WalletModalProps> = ({
     moralisAuth,
     setIsOpened,
     signingMessage = 'Moralis Authentication',
+    balancePrecision = 8,
     ...props
 }) => {
     const { authenticate, isInitialized, enableWeb3 } = useMoralis();
